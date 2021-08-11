@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f4ac5fd9980e4be6aee4a98278be2adc" Name="Diagram1" ZoomLevel="124" >
+        <EntityTypeShape EntityType="nemo_freshModel.About_partner" Width="1.5" PointX="3" PointY="23.875" />
+        <EntityTypeShape EntityType="nemo_freshModel.Inventions" Width="1.5" PointX="5.25" PointY="11.25" />
+        <EntityTypeShape EntityType="nemo_freshModel.MAIL" Width="1.5" PointX="5.75" PointY="0.75" />
+        <AssociationConnector Association="nemo_freshModel.FK_Inventions_About_partner" />
+        <EntityTypeShape EntityType="nemo_freshModel.PartnerZoneCriteria" Width="1.5" PointX="3" PointY="5.625" />
+        <EntityTypeShape EntityType="nemo_freshModel.Shedule" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nemo_freshModel.ScheduleClientChangesLog" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="nemo_freshModel.MailChangedLog" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nemo_freshModel.DocumentFolders" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="nemo_freshModel.DocumentSigns" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="nemo_freshModel.Users" Width="1.5" PointX="0.75" PointY="16.25" />
+        <AssociationConnector Association="nemo_freshModel.FK_About_partner_Users" />
+        <AssociationConnector Association="nemo_freshModel.FK_About_partner_Users1" />
+        <AssociationConnector Association="nemo_freshModel.FK_PartnerZoneCriteria_Users" />
+        <AssociationConnector Association="nemo_freshModel.FK_DocumentFolders_Users" />
+        <EntityTypeShape EntityType="nemo_freshModel.UsersCheckChanges" Width="1.5" PointX="3" PointY="2.875" />
+        <AssociationConnector Association="nemo_freshModel.FK_UsersCheckChanges_Users" />
+        <EntityTypeShape EntityType="nemo_freshModel.TrademarksIndex" Width="1.5" PointX="5.25" PointY="32.75" />
+        <AssociationConnector Association="nemo_freshModel.FK_TrademarksIndex_About_partner" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

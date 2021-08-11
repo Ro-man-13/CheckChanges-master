@@ -1,0 +1,1612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="nemo_freshModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="About partner">
+          <Key>
+            <PropertyRef Name="Attorney ID" />
+          </Key>
+          <Property Name="Attorney ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firm ID" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Attorney's surname" Type="nvarchar" MaxLength="35" />
+          <Property Name="Attorney's names" Type="nvarchar" MaxLength="25" />
+          <Property Name="Prefix" Type="nvarchar" MaxLength="5" />
+          <Property Name="Occupation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Russian" Type="bit" Nullable="false" />
+          <Property Name="CreatorDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirmID_save" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Special_instructions_ContactPerson" Type="nvarchar(max)" />
+          <Property Name="Special_instructions_for_DN_ContactPerson" Type="nvarchar(max)" />
+          <Property Name="BillingName" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingAddress" Type="nvarchar(max)" />
+          <Property Name="BillingCountry" Type="nvarchar" MaxLength="20" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="LastUser" Type="int" />
+          <Property Name="LastUpdateDate" Type="smalldatetime" />
+          <Property Name="PartnerIDAPAF" Type="int" />
+          <Property Name="PartnerIdPCCP" Type="int" />
+          <Property Name="PartnerIdE" Type="int" />
+          <Property Name="PartnerDescription" Type="nvarchar" MaxLength="4000" />
+          <Property Name="PartnerIsPersonal" Type="bit" />
+          <Property Name="PartnerIsBefore" Type="bit" />
+          <Property Name="PartnerThroughTheIntermediary" Type="bit" />
+          <Property Name="PartnerCreator" Type="int" />
+          <Property Name="PartnerCreationDate" Type="smalldatetime" />
+          <Property Name="NotWrite" Type="bit" Nullable="false" />
+          <Property Name="SendNotiftoTelegram" Type="bit" />
+          <Property Name="SendNotiftoViber" Type="bit" />
+        </EntityType>
+        <EntityType Name="DocumentFolders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_id" Type="int" />
+          <Property Name="DocumentFolder" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DocumentSigns">
+          <Key>
+            <PropertyRef Name="idDS" />
+          </Key>
+          <Property Name="Sign" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FullDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ToShow" Type="bit" />
+          <Property Name="FullDescriptionRussian" Type="nvarchar" MaxLength="255" />
+          <Property Name="FullDescriptionTM" Type="nvarchar" MaxLength="255" />
+          <Property Name="FullDescriptionTMRussian" Type="nvarchar" MaxLength="255" />
+          <Property Name="ShowSign" Type="bit" />
+          <Property Name="ToSubDivisions" Type="nvarchar" MaxLength="250" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="idDS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventions">
+          <Key>
+            <PropertyRef Name="Our case" />
+          </Key>
+          <Property Name="Our case" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Serial number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patent number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Attorney ID" Type="int" />
+          <Property Name="Agent ID" Type="int" />
+          <Property Name="Applicant ID" Type="int" />
+          <Property Name="Applicant ID 2" Type="int" />
+          <Property Name="Applicant ID 3" Type="int" />
+          <Property Name="Applicant ID 4" Type="int" />
+          <Property Name="Applicant ID 5" Type="int" />
+          <Property Name="Applicant ID 6" Type="int" />
+          <Property Name="Inventions title(National)" Type="nvarchar(max)" />
+          <Property Name="TitleFilingLanguage" Type="nvarchar(max)" />
+          <Property Name="Inventions title(Russian)" Type="nvarchar(max)" />
+          <Property Name="Office ref" Type="nvarchar" MaxLength="50" />
+          <Property Name="Agent ref" Type="nvarchar" MaxLength="50" />
+          <Property Name="Their ref" Type="nvarchar" MaxLength="255" />
+          <Property Name="Filing date" Type="smalldatetime" />
+          <Property Name="Filed_in_DP" Type="smalldatetime" />
+          <Property Name="1 priority date" Type="smalldatetime" />
+          <Property Name="1 priority num" Type="nvarchar" MaxLength="255" />
+          <Property Name="2 priority date" Type="smalldatetime" />
+          <Property Name="2 priority num" Type="nvarchar" MaxLength="255" />
+          <Property Name="3 priority date" Type="smalldatetime" />
+          <Property Name="3 priority num" Type="nvarchar" MaxLength="255" />
+          <Property Name="Claims" Type="smallint" />
+          <Property Name="Other prioryties" Type="nvarchar" MaxLength="50" />
+          <Property Name="Author ID 1" Type="int" />
+          <Property Name="Author ID 2" Type="int" />
+          <Property Name="Author ID 3" Type="int" />
+          <Property Name="Author ID 4" Type="int" />
+          <Property Name="Author ID 5" Type="int" />
+          <Property Name="Author ID 6" Type="int" />
+          <Property Name="Author ID 7" Type="int" />
+          <Property Name="Author ID 8" Type="int" />
+          <Property Name="Author ID 9" Type="int" />
+          <Property Name="Author ID 10" Type="int" />
+          <Property Name="isDivisional" Type="bit" />
+          <Property Name="PCT number" Type="nvarchar" MaxLength="17" />
+          <Property Name="PCT date" Type="smalldatetime" />
+          <Property Name="IPC number" Type="nvarchar" MaxLength="500" />
+          <Property Name="Contact to" Type="int" />
+          <Property Name="Patent date" Type="smalldatetime" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="2500" />
+          <Property Name="StatusID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Archives:" Type="float" />
+          <Property Name="Closed" Type="bit" />
+          <Property Name="ForeignPatents" Type="nvarchar" MaxLength="500" />
+          <Property Name="WO date" Type="smalldatetime" />
+          <Property Name="WO number" Type="nvarchar" MaxLength="500" />
+          <Property Name="StageID" Type="smallint" />
+          <Property Name="StageID-old" Type="int" />
+          <Property Name="User" Type="nvarchar" MaxLength="255" />
+          <Property Name="User_Cr_Date" Type="smalldatetime" />
+          <Property Name="Last_User" Type="nvarchar" MaxLength="255" />
+          <Property Name="Last_User_Date" Type="smalldatetime" />
+          <Property Name="Claims_list" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Claims_Total" Type="smallint" />
+          <Property Name="Text" Type="int" />
+          <Property Name="Text_notEngl" Type="int" />
+          <Property Name="Text_discount" Type="smallint" />
+          <Property Name="Full_discount" Type="smallint" />
+          <Property Name="Search_Report" Type="bit" />
+          <Property Name="Appl_type" Type="smallint" />
+          <Property Name="OurCaseID_save" Type="nvarchar" MaxLength="100" />
+          <Property Name="ExaminerID" Type="int" />
+          <Property Name="Applicants_type" Type="int" />
+          <Property Name="RichCountryResidents" Type="bit" />
+          <Property Name="Text_base_UA_RU" Type="int" />
+          <Property Name="PublPages" Type="smallint" />
+          <Property Name="Filing number" Type="nvarchar" MaxLength="9" />
+          <Property Name="Ann_Y" Type="smallint" />
+          <Property Name="Next_Y" Type="smalldatetime" />
+          <Property Name="Date4m" Type="smalldatetime" />
+          <Property Name="Examination date" Type="smalldatetime" />
+          <Property Name="SpecificationID" Type="int" />
+          <Property Name="OfficeID" Type="int" />
+          <Property Name="IsPhysical" Type="bit" />
+          <Property Name="PhysicalAttorneyID" Type="int" />
+          <Property Name="IsInternationalFiling" Type="bit" />
+          <Property Name="QueryBound" Type="nvarchar" MaxLength="255" />
+          <Property Name="NotToShow" Type="bit" />
+          <Property Name="NewRefNum" Type="nvarchar" MaxLength="255" />
+          <Property Name="ParentApplication" Type="nvarchar" MaxLength="15" />
+          <Property Name="DivisionalDate" Type="smalldatetime" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IPCoster_Prj" Type="nvarchar" MaxLength="30" />
+          <Property Name="FilingLanguageId" Type="int" />
+          <Property Name="NationalLanguageId" Type="int" />
+          <Property Name="Validation" Type="bit" Nullable="false" />
+          <Property Name="AttorneyWorkspace" Type="bit" Nullable="false" />
+          <Property Name="CNCN" Type="bit" Nullable="false" />
+          <Property Name="PrReadChk" Type="bit" />
+          <Property Name="PrReadWords" Type="int" />
+          <Property Name="chQualControl" Type="bit" />
+          <Property Name="LimitedPatent" Type="bit" Nullable="false" />
+          <Property Name="GuarantePayment" Type="bit" Nullable="false" />
+          <Property Name="RATypeId" Type="int" />
+          <Property Name="FinanceInstrForCase" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="MAIL">
+          <Key>
+            <PropertyRef Name="RegNo" />
+          </Key>
+          <Property Name="RegNo" Type="int" Nullable="false" />
+          <Property Name="Дата" Type="smalldatetime" />
+          <Property Name="Получатель/Отправитель" Type="nvarchar" MaxLength="255" />
+          <Property Name="Наш номер" Type="nvarchar" MaxLength="255" />
+          <Property Name="Вид корреспонденции" Type="nvarchar" MaxLength="255" />
+          <Property Name="Содержание" Type="nvarchar" MaxLength="255" />
+          <Property Name="Приложение" Type="nvarchar" MaxLength="255" />
+          <Property Name="File" Type="nvarchar(max)" />
+          <Property Name="Исполнитель" Type="nvarchar" MaxLength="50" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="255" />
+          <Property Name="IN/OUT" Type="bit" />
+          <Property Name="AgentRef" Type="nvarchar" MaxLength="100" />
+          <Property Name="Входящий" Type="int" />
+          <Property Name="Принят" Type="smalldatetime" />
+          <Property Name="ControlFlag" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConfirmReceive" Type="smalldatetime" />
+          <Property Name="ConfirmFiling" Type="smalldatetime" />
+          <Property Name="ConfirmReturn" Type="smalldatetime" />
+          <Property Name="File_Reply" Type="nvarchar(max)" />
+          <Property Name="Urgency" Type="int" />
+          <Property Name="Deadline" Type="smalldatetime" />
+          <Property Name="Urgent" Type="bit" />
+          <Property Name="File_Reply2" Type="nvarchar(max)" />
+          <Property Name="CourierType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CourierDate" Type="smalldatetime" />
+          <Property Name="ToShow" Type="bit" />
+          <Property Name="ShowReply" Type="bit" />
+          <Property Name="File_Storage" Type="smalldatetime" />
+          <Property Name="DateFiling" Type="smalldatetime" />
+          <Property Name="TempDateFiling" Type="smalldatetime" />
+          <Property Name="TimeDF" Type="smalldatetime" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="NotToShow" Type="bit" />
+          <Property Name="SentFromKh" Type="smalldatetime" />
+          <Property Name="CreationDate" Type="smalldatetime" />
+          <Property Name="IgnoreDescription" Type="bit" />
+          <Property Name="ParentRegNo" Type="int" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ToCountry" Type="nvarchar" MaxLength="100" />
+          <Property Name="DeliveredToRUbyCurier" Type="smalldatetime" />
+          <Property Name="FirmPlat" Type="int" />
+        </EntityType>
+        <EntityType Name="MailChangedLog">
+          <Key>
+            <PropertyRef Name="id_change" />
+          </Key>
+          <Property Name="id_change" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExactTime" Type="smalldatetime" />
+          <Property Name="mail_id" Type="int" />
+          <Property Name="OurCase" Type="nvarchar" MaxLength="50" />
+          <Property Name="WhatChanged" Type="nvarchar" MaxLength="255" />
+          <Property Name="ChangedFrom" Type="nvarchar(max)" />
+          <Property Name="ChangedTo" Type="nvarchar(max)" />
+          <Property Name="ChangeBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sent" Type="bit" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PartnerZoneCriteria">
+          <Key>
+            <PropertyRef Name="id_record" />
+          </Key>
+          <Property Name="id_record" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="WhatCriteria" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsNumeric" Type="bit" />
+          <Property Name="ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScheduleClientChangesLog">
+          <Key>
+            <PropertyRef Name="id_change" />
+          </Key>
+          <Property Name="id_change" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExactTime" Type="smalldatetime" />
+          <Property Name="schedule_id" Type="int" />
+          <Property Name="OurCase" Type="nvarchar" MaxLength="50" />
+          <Property Name="WhatChanged" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChangedFrom" Type="nvarchar(max)" />
+          <Property Name="ChangedTo" Type="nvarchar(max)" />
+          <Property Name="ChangedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sent" Type="bit" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Name="ScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Our case" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Deadline" Type="smalldatetime" />
+          <Property Name="Action" Type="nvarchar" MaxLength="255" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="255" />
+          <Property Name="Creation_date" Type="smalldatetime" />
+          <Property Name="Reminder" Type="smalldatetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Executed" Type="bit" />
+          <Property Name="User" Type="nvarchar" MaxLength="255" />
+          <Property Name="Execution_date" Type="smalldatetime" />
+          <Property Name="Show_all" Type="bit" />
+          <Property Name="Due_date" Type="smalldatetime" />
+          <Property Name="ChangeReason" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Stage" Type="smallint" />
+          <Property Name="MailID" Type="int" />
+          <Property Name="History" Type="nvarchar" MaxLength="255" />
+          <Property Name="ToShow" Type="bit" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="StatusHiddenText" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="TrademarksIndex">
+          <Key>
+            <PropertyRef Name="Our case" />
+          </Key>
+          <Property Name="Our case" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Attorney ID" Type="int" />
+          <Property Name="Agent ID" Type="int" />
+          <Property Name="Applicant ID" Type="int" />
+          <Property Name="Wordmark" Type="nvarchar" MaxLength="600" />
+          <Property Name="Trademark colors" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsColor" Type="bit" />
+          <Property Name="Goods list" Type="nvarchar(max)" />
+          <Property Name="Classes" Type="nvarchar" MaxLength="255" />
+          <Property Name="Number of classes" Type="tinyint" />
+          <Property Name="Their ref" Type="nvarchar" MaxLength="100" />
+          <Property Name="Office ref" Type="nvarchar" MaxLength="100" />
+          <Property Name="Agent ref" Type="nvarchar" MaxLength="100" />
+          <Property Name="USSR number" Type="int" />
+          <Property Name="Filing date" Type="smalldatetime" />
+          <Property Name="1 priority date" Type="smalldatetime" />
+          <Property Name="1 priority num" Type="nvarchar" MaxLength="25" />
+          <Property Name="International number" Type="nvarchar" MaxLength="14" />
+          <Property Name="International date" Type="smalldatetime" />
+          <Property Name="Serial number" Type="nvarchar" MaxLength="25" />
+          <Property Name="Certificate number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact to" Type="int" />
+          <Property Name="Patent date" Type="smalldatetime" />
+          <Property Name="TM font" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="600" />
+          <Property Name="Archives:" Type="float" />
+          <Property Name="Closed" Type="bit" />
+          <Property Name="ExaminerID" Type="int" />
+          <Property Name="User" Type="nvarchar" MaxLength="255" />
+          <Property Name="User_Cr_Date" Type="smalldatetime" />
+          <Property Name="Last_User" Type="nvarchar" MaxLength="255" />
+          <Property Name="Last_User_Date" Type="smalldatetime" />
+          <Property Name="Our_ref" Type="nvarchar" MaxLength="20" />
+          <Property Name="StatusID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Renewal date" Type="smalldatetime" />
+          <Property Name="Print" Type="bit" />
+          <Property Name="ApplicationID" Type="smallint" />
+          <Property Name="TrademarkDescription" Type="nvarchar(max)" />
+          <Property Name="OfficeID" Type="int" />
+          <Property Name="IsPhysical" Type="bit" />
+          <Property Name="PhysicalAttorneyID" Type="int" />
+          <Property Name="QueryBound" Type="nvarchar" MaxLength="255" />
+          <Property Name="NotToShow" Type="bit" />
+          <Property Name="NewRefNum" Type="nvarchar" MaxLength="255" />
+          <Property Name="AcceleratedExamination" Type="bit" />
+          <Property Name="Efiling" Type="bit" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IPCoster_Prj" Type="nvarchar" MaxLength="50" />
+          <Property Name="IPCosterOurRoleInPrj" Type="bit" />
+          <Property Name="CNCN" Type="bit" />
+          <Property Name="ClassRemarks" Type="nchar" MaxLength="255" />
+          <Property Name="RusColorName" Type="nchar" MaxLength="255" />
+          <Property Name="EngColorName" Type="nchar" MaxLength="255" />
+          <Property Name="OrderNumberFromSite" Type="nvarchar" MaxLength="50" />
+          <Property Name="BasicLanguageGoodsAndServices" Type="int" Nullable="false" />
+          <Property Name="TargetLanguageGoodsAndServices" Type="int" Nullable="false" />
+          <Property Name="FinanceInstrForCase" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id_User" />
+          </Key>
+          <Property Name="id_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="255" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserRealName" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserPatronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserOldSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserGroup_id" Type="int" />
+          <Property Name="UserType_id" Type="int" />
+          <Property Name="Hours" Type="real" />
+          <Property Name="comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Boss_Id" Type="int" />
+          <Property Name="Boss_Id2" Type="int" />
+          <Property Name="Boss_Id3" Type="int" />
+          <Property Name="ComputerName" Type="nvarchar" MaxLength="255" />
+          <Property Name="UniqueUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="PAFirmID" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExternalCaseComments" Type="nvarchar" MaxLength="255" />
+          <Property Name="CasesCriteria" Type="nvarchar" MaxLength="255" />
+          <Property Name="NotWorking" Type="bit" />
+          <Property Name="Hours_comment" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hours_Employee" Type="real" />
+          <Property Name="Vacation_days" Type="int" />
+          <Property Name="Vacation_hours" Type="real" />
+          <Property Name="Vacation_totalHours" Type="real" />
+          <Property Name="IsOfficially" Type="bit" />
+          <Property Name="ShowTM" Type="bit" />
+          <Property Name="ShowClosedCases" Type="bit" />
+          <Property Name="ShowOnlyTM" Type="bit" />
+          <Property Name="PersonalSkype" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkSkype" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersonalEmails" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPhones" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServerAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServerPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="AllowCashOperations" Type="bit" />
+          <Property Name="BirthDate" Type="smalldatetime" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="InfoPageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageLink" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeeInfo" Type="nvarchar(max)" />
+          <Property Name="OfficeID" Type="int" />
+          <Property Name="FIRMID" Type="int" />
+          <Property Name="WorkingSince" Type="smalldatetime" />
+          <Property Name="TestNextAttemptDate" Type="date" />
+          <Property Name="NeedCaptchaInput" Type="bit" />
+          <Property Name="RestrictedWithoutEmailAuth" Type="bit" />
+          <Property Name="AllowRemoteAccess" Type="bit" Nullable="false" />
+          <Property Name="AllowRemoteAccessExclusively" Type="bit" Nullable="false" />
+          <Property Name="tstamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="IsIntern" Type="bit" Nullable="false" />
+          <Property Name="WorkContactNumbers" Type="nvarchar" MaxLength="255" />
+          <Property Name="RegistrationAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="FactAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="Education" Type="nvarchar" MaxLength="255" />
+          <Property Name="Photo_link" Type="nvarchar" MaxLength="255" />
+          <Property Name="CV_link" Type="nvarchar" MaxLength="255" />
+          <Property Name="WorkingOut" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="Created_Date" Type="smalldatetime" />
+          <Property Name="Updated_By" Type="int" />
+          <Property Name="Updated_Date" Type="smalldatetime" />
+          <Property Name="SignatureLink" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsAdditionalVerification" Type="bit" />
+          <Property Name="PassedText" Type="bit" />
+        </EntityType>
+        <EntityType Name="UsersCheckChanges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IsInv" Type="bit" Nullable="false" />
+          <Property Name="IsTM" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_About partner_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="About partner" Type="Self.About partner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="About partner">
+              <PropertyRef Name="LastUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_About partner_Users1">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="About partner" Type="Self.About partner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="About partner">
+              <PropertyRef Name="PartnerCreator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentFolders_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="DocumentFolders" Type="Self.DocumentFolders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="DocumentFolders">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventions_About partner">
+          <End Role="About partner" Type="Self.About partner" Multiplicity="0..1" />
+          <End Role="Inventions" Type="Self.Inventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="About partner">
+              <PropertyRef Name="Attorney ID" />
+            </Principal>
+            <Dependent Role="Inventions">
+              <PropertyRef Name="Attorney ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Inventions_Users" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Inventions_Users" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Inventions_Users1" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Inventions_Users1" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_MAIL_Users" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_MAIL_Users" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_MailChangedLog_Users" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_MailChangedLog_Users" />-->
+        <Association Name="FK_PartnerZoneCriteria_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="PartnerZoneCriteria" Type="Self.PartnerZoneCriteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="PartnerZoneCriteria">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_ScheduleClientChangesLog_Users" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_ScheduleClientChangesLog_Users" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Shedule_Users" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Shedule_Users" />-->
+        <Association Name="FK_TrademarksIndex_About partner">
+          <End Role="About partner" Type="Self.About partner" Multiplicity="0..1" />
+          <End Role="TrademarksIndex" Type="Self.TrademarksIndex" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="About partner">
+              <PropertyRef Name="Attorney ID" />
+            </Principal>
+            <Dependent Role="TrademarksIndex">
+              <PropertyRef Name="Attorney ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_TrademarksIndex_Users" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_TrademarksIndex_Users" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_TrademarksIndex_Users1" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_TrademarksIndex_Users1" />-->
+        <Association Name="FK_UsersCheckChanges_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UsersCheckChanges" Type="Self.UsersCheckChanges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="UsersCheckChanges">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="nemo_freshModelStoreContainer">
+          <EntitySet Name="About partner" EntityType="Self.About partner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentFolders" EntityType="Self.DocumentFolders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentSigns" EntityType="Self.DocumentSigns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventions" EntityType="Self.Inventions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAIL" EntityType="Self.MAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailChangedLog" EntityType="Self.MailChangedLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartnerZoneCriteria" EntityType="Self.PartnerZoneCriteria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleClientChangesLog" EntityType="Self.ScheduleClientChangesLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shedule" EntityType="Self.Shedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrademarksIndex" EntityType="Self.TrademarksIndex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersCheckChanges" EntityType="Self.UsersCheckChanges" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_About partner_Users" Association="Self.FK_About partner_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="About partner" EntitySet="About partner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_About partner_Users1" Association="Self.FK_About partner_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="About partner" EntitySet="About partner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentFolders_Users" Association="Self.FK_DocumentFolders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="DocumentFolders" EntitySet="DocumentFolders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventions_About partner" Association="Self.FK_Inventions_About partner">
+            <End Role="About partner" EntitySet="About partner" />
+            <End Role="Inventions" EntitySet="Inventions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartnerZoneCriteria_Users" Association="Self.FK_PartnerZoneCriteria_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PartnerZoneCriteria" EntitySet="PartnerZoneCriteria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrademarksIndex_About partner" Association="Self.FK_TrademarksIndex_About partner">
+            <End Role="About partner" EntitySet="About partner" />
+            <End Role="TrademarksIndex" EntitySet="TrademarksIndex" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersCheckChanges_Users" Association="Self.FK_UsersCheckChanges_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersCheckChanges" EntitySet="UsersCheckChanges" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="nemo_freshModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="nemo_freshEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="About_partner" EntityType="nemo_freshModel.About_partner" />
+          <EntitySet Name="Inventions" EntityType="nemo_freshModel.Inventions" />
+          <EntitySet Name="MAIL" EntityType="nemo_freshModel.MAIL" />
+          <AssociationSet Name="FK_Inventions_About_partner" Association="nemo_freshModel.FK_Inventions_About_partner">
+            <End Role="About_partner" EntitySet="About_partner" />
+            <End Role="Inventions" EntitySet="Inventions" />
+          </AssociationSet>
+          <EntitySet Name="PartnerZoneCriteria" EntityType="nemo_freshModel.PartnerZoneCriteria" />
+          <EntitySet Name="Shedule" EntityType="nemo_freshModel.Shedule" />
+          <EntitySet Name="ScheduleClientChangesLog" EntityType="nemo_freshModel.ScheduleClientChangesLog" />
+          <EntitySet Name="MailChangedLog" EntityType="nemo_freshModel.MailChangedLog" />
+          <EntitySet Name="DocumentFolders" EntityType="nemo_freshModel.DocumentFolders" />
+          <EntitySet Name="DocumentSigns" EntityType="nemo_freshModel.DocumentSigns" />
+          <EntitySet Name="Users" EntityType="nemo_freshModel.Users" />
+          <AssociationSet Name="FK_About_partner_Users" Association="nemo_freshModel.FK_About_partner_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="About_partner" EntitySet="About_partner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_About_partner_Users1" Association="nemo_freshModel.FK_About_partner_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="About_partner" EntitySet="About_partner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartnerZoneCriteria_Users" Association="nemo_freshModel.FK_PartnerZoneCriteria_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PartnerZoneCriteria" EntitySet="PartnerZoneCriteria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentFolders_Users" Association="nemo_freshModel.FK_DocumentFolders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="DocumentFolders" EntitySet="DocumentFolders" />
+          </AssociationSet>
+          <EntitySet Name="UsersCheckChanges" EntityType="nemo_freshModel.UsersCheckChanges" />
+          <AssociationSet Name="FK_UsersCheckChanges_Users" Association="nemo_freshModel.FK_UsersCheckChanges_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersCheckChanges" EntitySet="UsersCheckChanges" />
+          </AssociationSet>
+          <EntitySet Name="TrademarksIndex" EntityType="nemo_freshModel.TrademarksIndex" />
+          <AssociationSet Name="FK_TrademarksIndex_About_partner" Association="nemo_freshModel.FK_TrademarksIndex_About_partner">
+            <End Role="About_partner" EntitySet="About_partner" />
+            <End Role="TrademarksIndex" EntitySet="TrademarksIndex" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="About_partner">
+          <Key>
+            <PropertyRef Name="Attorney_ID" />
+          </Key>
+          <Property Name="Attorney_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firm_ID" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Attorney_s_surname" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="Attorney_s_names" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Prefix" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Russian" Type="Boolean" Nullable="false" />
+          <Property Name="CreatorDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirmID_save" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Special_instructions_ContactPerson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Special_instructions_for_DN_ContactPerson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BillingName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BillingCountry" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastUser" Type="Int32" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="PartnerIDAPAF" Type="Int32" />
+          <Property Name="PartnerIdPCCP" Type="Int32" />
+          <Property Name="PartnerIdE" Type="Int32" />
+          <Property Name="PartnerDescription" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="PartnerIsPersonal" Type="Boolean" />
+          <Property Name="PartnerIsBefore" Type="Boolean" />
+          <Property Name="PartnerThroughTheIntermediary" Type="Boolean" />
+          <Property Name="PartnerCreator" Type="Int32" />
+          <Property Name="PartnerCreationDate" Type="DateTime" Precision="0" />
+          <Property Name="NotWrite" Type="Boolean" Nullable="false" />
+          <Property Name="SendNotiftoTelegram" Type="Boolean" />
+          <Property Name="SendNotiftoViber" Type="Boolean" />
+          <NavigationProperty Name="Inventions" Relationship="nemo_freshModel.FK_Inventions_About_partner" FromRole="About_partner" ToRole="Inventions" />
+          <NavigationProperty Name="Users" Relationship="nemo_freshModel.FK_About_partner_Users" FromRole="About_partner" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="nemo_freshModel.FK_About_partner_Users1" FromRole="About_partner" ToRole="Users" />
+          <NavigationProperty Name="TrademarksIndex" Relationship="nemo_freshModel.FK_TrademarksIndex_About_partner" FromRole="About_partner" ToRole="TrademarksIndex" />
+        </EntityType>
+        <EntityType Name="Inventions">
+          <Key>
+            <PropertyRef Name="Our_case" />
+          </Key>
+          <Property Name="Our_case" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Serial_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patent_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Attorney_ID" Type="Int32" />
+          <Property Name="Agent_ID" Type="Int32" />
+          <Property Name="Applicant_ID" Type="Int32" />
+          <Property Name="Applicant_ID_2" Type="Int32" />
+          <Property Name="Applicant_ID_3" Type="Int32" />
+          <Property Name="Applicant_ID_4" Type="Int32" />
+          <Property Name="Applicant_ID_5" Type="Int32" />
+          <Property Name="Applicant_ID_6" Type="Int32" />
+          <Property Name="Inventions_title_National_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TitleFilingLanguage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Inventions_title_Russian_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Office_ref" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Agent_ref" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Their_ref" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Filing_date" Type="DateTime" Precision="0" />
+          <Property Name="Filed_in_DP" Type="DateTime" Precision="0" />
+          <Property Name="C1_priority_date" Type="DateTime" Precision="0" />
+          <Property Name="C1_priority_num" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="C2_priority_date" Type="DateTime" Precision="0" />
+          <Property Name="C2_priority_num" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="C3_priority_date" Type="DateTime" Precision="0" />
+          <Property Name="C3_priority_num" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Claims" Type="Int16" />
+          <Property Name="Other_prioryties" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Author_ID_1" Type="Int32" />
+          <Property Name="Author_ID_2" Type="Int32" />
+          <Property Name="Author_ID_3" Type="Int32" />
+          <Property Name="Author_ID_4" Type="Int32" />
+          <Property Name="Author_ID_5" Type="Int32" />
+          <Property Name="Author_ID_6" Type="Int32" />
+          <Property Name="Author_ID_7" Type="Int32" />
+          <Property Name="Author_ID_8" Type="Int32" />
+          <Property Name="Author_ID_9" Type="Int32" />
+          <Property Name="Author_ID_10" Type="Int32" />
+          <Property Name="isDivisional" Type="Boolean" />
+          <Property Name="PCT_number" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+          <Property Name="PCT_date" Type="DateTime" Precision="0" />
+          <Property Name="IPC_number" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_to" Type="Int32" />
+          <Property Name="Patent_date" Type="DateTime" Precision="0" />
+          <Property Name="Remarks" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Archives_" Type="Double" />
+          <Property Name="Closed" Type="Boolean" />
+          <Property Name="ForeignPatents" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="WO_date" Type="DateTime" Precision="0" />
+          <Property Name="WO_number" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StageID" Type="Int16" />
+          <Property Name="StageID_old" Type="Int32" />
+          <Property Name="User" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="User_Cr_Date" Type="DateTime" Precision="0" />
+          <Property Name="Last_User" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Last_User_Date" Type="DateTime" Precision="0" />
+          <Property Name="Claims_list" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Claims_Total" Type="Int16" />
+          <Property Name="Text" Type="Int32" />
+          <Property Name="Text_notEngl" Type="Int32" />
+          <Property Name="Text_discount" Type="Int16" />
+          <Property Name="Full_discount" Type="Int16" />
+          <Property Name="Search_Report" Type="Boolean" />
+          <Property Name="Appl_type" Type="Int16" />
+          <Property Name="OurCaseID_save" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ExaminerID" Type="Int32" />
+          <Property Name="Applicants_type" Type="Int32" />
+          <Property Name="RichCountryResidents" Type="Boolean" />
+          <Property Name="Text_base_UA_RU" Type="Int32" />
+          <Property Name="PublPages" Type="Int16" />
+          <Property Name="Filing_number" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="Ann_Y" Type="Int16" />
+          <Property Name="Next_Y" Type="DateTime" Precision="0" />
+          <Property Name="Date4m" Type="DateTime" Precision="0" />
+          <Property Name="Examination_date" Type="DateTime" Precision="0" />
+          <Property Name="SpecificationID" Type="Int32" />
+          <Property Name="OfficeID" Type="Int32" />
+          <Property Name="IsPhysical" Type="Boolean" />
+          <Property Name="PhysicalAttorneyID" Type="Int32" />
+          <Property Name="IsInternationalFiling" Type="Boolean" />
+          <Property Name="QueryBound" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NotToShow" Type="Boolean" />
+          <Property Name="NewRefNum" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ParentApplication" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DivisionalDate" Type="DateTime" Precision="0" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IPCoster_Prj" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FilingLanguageId" Type="Int32" />
+          <Property Name="NationalLanguageId" Type="Int32" />
+          <Property Name="Validation" Type="Boolean" Nullable="false" />
+          <Property Name="AttorneyWorkspace" Type="Boolean" Nullable="false" />
+          <Property Name="CNCN" Type="Boolean" Nullable="false" />
+          <Property Name="PrReadChk" Type="Boolean" />
+          <Property Name="PrReadWords" Type="Int32" />
+          <Property Name="chQualControl" Type="Boolean" />
+          <Property Name="LimitedPatent" Type="Boolean" Nullable="false" />
+          <Property Name="GuarantePayment" Type="Boolean" Nullable="false" />
+          <Property Name="RATypeId" Type="Int32" />
+          <NavigationProperty Name="About_partner" Relationship="nemo_freshModel.FK_Inventions_About_partner" FromRole="Inventions" ToRole="About_partner" />
+          <Property Name="FinanceInstrForCase" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MAIL">
+          <Key>
+            <PropertyRef Name="RegNo" />
+          </Key>
+          <Property Name="RegNo" Type="Int32" Nullable="false" />
+          <Property Name="Дата" Type="DateTime" Precision="0" />
+          <Property Name="Получатель_Отправитель" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Наш_номер" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Вид_корреспонденции" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Содержание" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Приложение" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="File" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Исполнитель" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IN_OUT" Type="Boolean" />
+          <Property Name="AgentRef" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Входящий" Type="Int32" />
+          <Property Name="Принят" Type="DateTime" Precision="0" />
+          <Property Name="ControlFlag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmReceive" Type="DateTime" Precision="0" />
+          <Property Name="ConfirmFiling" Type="DateTime" Precision="0" />
+          <Property Name="ConfirmReturn" Type="DateTime" Precision="0" />
+          <Property Name="File_Reply" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Urgency" Type="Int32" />
+          <Property Name="Deadline" Type="DateTime" Precision="0" />
+          <Property Name="Urgent" Type="Boolean" />
+          <Property Name="File_Reply2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CourierType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CourierDate" Type="DateTime" Precision="0" />
+          <Property Name="ToShow" Type="Boolean" />
+          <Property Name="ShowReply" Type="Boolean" />
+          <Property Name="File_Storage" Type="DateTime" Precision="0" />
+          <Property Name="DateFiling" Type="DateTime" Precision="0" />
+          <Property Name="TempDateFiling" Type="DateTime" Precision="0" />
+          <Property Name="TimeDF" Type="DateTime" Precision="0" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NotToShow" Type="Boolean" />
+          <Property Name="SentFromKh" Type="DateTime" Precision="0" />
+          <Property Name="CreationDate" Type="DateTime" Precision="0" />
+          <Property Name="IgnoreDescription" Type="Boolean" />
+          <Property Name="ParentRegNo" Type="Int32" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ToCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveredToRUbyCurier" Type="DateTime" Precision="0" />
+          <Property Name="FirmPlat" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Inventions_About_partner">
+          <End Type="nemo_freshModel.About_partner" Role="About_partner" Multiplicity="0..1" />
+          <End Type="nemo_freshModel.Inventions" Role="Inventions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="About_partner">
+              <PropertyRef Name="Attorney_ID" />
+            </Principal>
+            <Dependent Role="Inventions">
+              <PropertyRef Name="Attorney_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PartnerZoneCriteria">
+          <Key>
+            <PropertyRef Name="id_record" />
+          </Key>
+          <Property Name="id_record" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="WhatCriteria" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsNumeric" Type="Boolean" />
+          <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Users" Relationship="nemo_freshModel.FK_PartnerZoneCriteria_Users" FromRole="PartnerZoneCriteria" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Shedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Name="ScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Our_case" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Deadline" Type="DateTime" Precision="0" />
+          <Property Name="Action" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Creation_date" Type="DateTime" Precision="0" />
+          <Property Name="Reminder" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Executed" Type="Boolean" />
+          <Property Name="User" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Execution_date" Type="DateTime" Precision="0" />
+          <Property Name="Show_all" Type="Boolean" />
+          <Property Name="Due_date" Type="DateTime" Precision="0" />
+          <Property Name="ChangeReason" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Stage" Type="Int16" />
+          <Property Name="MailID" Type="Int32" />
+          <Property Name="History" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ToShow" Type="Boolean" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="StatusHiddenText" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ScheduleClientChangesLog">
+          <Key>
+            <PropertyRef Name="id_change" />
+          </Key>
+          <Property Name="id_change" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExactTime" Type="DateTime" Precision="0" />
+          <Property Name="schedule_id" Type="Int32" />
+          <Property Name="OurCase" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WhatChanged" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChangedFrom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangedTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Sent" Type="Boolean" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="MailChangedLog">
+          <Key>
+            <PropertyRef Name="id_change" />
+          </Key>
+          <Property Name="id_change" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExactTime" Type="DateTime" Precision="0" />
+          <Property Name="mail_id" Type="Int32" />
+          <Property Name="OurCase" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WhatChanged" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ChangedFrom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangedTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Sent" Type="Boolean" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="DocumentFolders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client_id" Type="Int32" />
+          <Property Name="DocumentFolder" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="nemo_freshModel.FK_DocumentFolders_Users" FromRole="DocumentFolders" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="DocumentSigns">
+          <Key>
+            <PropertyRef Name="idDS" />
+          </Key>
+          <Property Name="Sign" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FullDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ToShow" Type="Boolean" />
+          <Property Name="FullDescriptionRussian" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FullDescriptionTM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FullDescriptionTMRussian" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ShowSign" Type="Boolean" />
+          <Property Name="ToSubDivisions" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="idDS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id_User" />
+          </Key>
+          <Property Name="id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserRealName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserPatronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserOldSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserGroup_id" Type="Int32" />
+          <Property Name="UserType_id" Type="Int32" />
+          <Property Name="Hours" Type="Single" />
+          <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Boss_Id" Type="Int32" />
+          <Property Name="Boss_Id2" Type="Int32" />
+          <Property Name="Boss_Id3" Type="Int32" />
+          <Property Name="ComputerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UniqueUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="PAFirmID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ExternalCaseComments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CasesCriteria" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NotWorking" Type="Boolean" />
+          <Property Name="Hours_comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hours_Employee" Type="Single" />
+          <Property Name="Vacation_days" Type="Int32" />
+          <Property Name="Vacation_hours" Type="Single" />
+          <Property Name="Vacation_totalHours" Type="Single" />
+          <Property Name="IsOfficially" Type="Boolean" />
+          <Property Name="ShowTM" Type="Boolean" />
+          <Property Name="ShowClosedCases" Type="Boolean" />
+          <Property Name="ShowOnlyTM" Type="Boolean" />
+          <Property Name="PersonalSkype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkSkype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalEmails" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPhones" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServerAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServerPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AllowCashOperations" Type="Boolean" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="InfoPageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageLink" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeID" Type="Int32" />
+          <Property Name="FIRMID" Type="Int32" />
+          <Property Name="WorkingSince" Type="DateTime" Precision="0" />
+          <Property Name="TestNextAttemptDate" Type="DateTime" Precision="0" />
+          <Property Name="NeedCaptchaInput" Type="Boolean" />
+          <Property Name="RestrictedWithoutEmailAuth" Type="Boolean" />
+          <Property Name="AllowRemoteAccess" Type="Boolean" Nullable="false" />
+          <Property Name="AllowRemoteAccessExclusively" Type="Boolean" Nullable="false" />
+          <Property Name="tstamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsIntern" Type="Boolean" Nullable="false" />
+          <Property Name="WorkContactNumbers" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FactAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Education" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Photo_link" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CV_link" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WorkingOut" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="0" />
+          <Property Name="Updated_By" Type="Int32" />
+          <Property Name="Updated_Date" Type="DateTime" Precision="0" />
+          <Property Name="SignatureLink" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdditionalVerification" Type="Boolean" />
+          <NavigationProperty Name="About_partner" Relationship="nemo_freshModel.FK_About_partner_Users" FromRole="Users" ToRole="About_partner" />
+          <NavigationProperty Name="About_partner1" Relationship="nemo_freshModel.FK_About_partner_Users1" FromRole="Users" ToRole="About_partner" />
+          <NavigationProperty Name="PartnerZoneCriteria" Relationship="nemo_freshModel.FK_PartnerZoneCriteria_Users" FromRole="Users" ToRole="PartnerZoneCriteria" />
+          <NavigationProperty Name="DocumentFolders" Relationship="nemo_freshModel.FK_DocumentFolders_Users" FromRole="Users" ToRole="DocumentFolders" />
+          <Property Name="PassedText" Type="Boolean" />
+          <NavigationProperty Name="UsersCheckChanges" Relationship="nemo_freshModel.FK_UsersCheckChanges_Users" FromRole="Users" ToRole="UsersCheckChanges" />
+        </EntityType>
+        <Association Name="FK_About_partner_Users">
+          <End Type="nemo_freshModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="nemo_freshModel.About_partner" Role="About_partner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="About_partner">
+              <PropertyRef Name="LastUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_About_partner_Users1">
+          <End Type="nemo_freshModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="nemo_freshModel.About_partner" Role="About_partner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="About_partner">
+              <PropertyRef Name="PartnerCreator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartnerZoneCriteria_Users">
+          <End Type="nemo_freshModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="nemo_freshModel.PartnerZoneCriteria" Role="PartnerZoneCriteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="PartnerZoneCriteria">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentFolders_Users">
+          <End Type="nemo_freshModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="nemo_freshModel.DocumentFolders" Role="DocumentFolders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="DocumentFolders">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UsersCheckChanges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IsInv" Type="Boolean" Nullable="false" />
+          <Property Name="IsTM" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="nemo_freshModel.FK_UsersCheckChanges_Users" FromRole="UsersCheckChanges" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_UsersCheckChanges_Users">
+          <End Type="nemo_freshModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="nemo_freshModel.UsersCheckChanges" Role="UsersCheckChanges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="UsersCheckChanges">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TrademarksIndex">
+          <Key>
+            <PropertyRef Name="Our_case" />
+          </Key>
+          <Property Name="Our_case" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Attorney_ID" Type="Int32" />
+          <Property Name="Agent_ID" Type="Int32" />
+          <Property Name="Applicant_ID" Type="Int32" />
+          <Property Name="Wordmark" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="Trademark_colors" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsColor" Type="Boolean" />
+          <Property Name="Goods_list" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Classes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Number_of_classes" Type="Byte" />
+          <Property Name="Their_ref" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Office_ref" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Agent_ref" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="USSR_number" Type="Int32" />
+          <Property Name="Filing_date" Type="DateTime" Precision="0" />
+          <Property Name="C1_priority_date" Type="DateTime" Precision="0" />
+          <Property Name="C1_priority_num" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="International_number" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="International_date" Type="DateTime" Precision="0" />
+          <Property Name="Serial_number" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Certificate_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_to" Type="Int32" />
+          <Property Name="Patent_date" Type="DateTime" Precision="0" />
+          <Property Name="TM_font" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="Archives_" Type="Double" />
+          <Property Name="Closed" Type="Boolean" />
+          <Property Name="ExaminerID" Type="Int32" />
+          <Property Name="User" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="User_Cr_Date" Type="DateTime" Precision="0" />
+          <Property Name="Last_User" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Last_User_Date" Type="DateTime" Precision="0" />
+          <Property Name="Our_ref" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StatusID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Renewal_date" Type="DateTime" Precision="0" />
+          <Property Name="Print" Type="Boolean" />
+          <Property Name="ApplicationID" Type="Int16" />
+          <Property Name="TrademarkDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeID" Type="Int32" />
+          <Property Name="IsPhysical" Type="Boolean" />
+          <Property Name="PhysicalAttorneyID" Type="Int32" />
+          <Property Name="QueryBound" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NotToShow" Type="Boolean" />
+          <Property Name="NewRefNum" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AcceleratedExamination" Type="Boolean" />
+          <Property Name="Efiling" Type="Boolean" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ImageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IPCoster_Prj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IPCosterOurRoleInPrj" Type="Boolean" />
+          <Property Name="CNCN" Type="Boolean" />
+          <Property Name="ClassRemarks" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="RusColorName" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="EngColorName" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="OrderNumberFromSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BasicLanguageGoodsAndServices" Type="Int32" Nullable="false" />
+          <Property Name="TargetLanguageGoodsAndServices" Type="Int32" Nullable="false" />
+          <Property Name="FinanceInstrForCase" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="About_partner" Relationship="nemo_freshModel.FK_TrademarksIndex_About_partner" FromRole="TrademarksIndex" ToRole="About_partner" />
+        </EntityType>
+        <Association Name="FK_TrademarksIndex_About_partner">
+          <End Type="nemo_freshModel.About_partner" Role="About_partner" Multiplicity="0..1" />
+          <End Type="nemo_freshModel.TrademarksIndex" Role="TrademarksIndex" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="About_partner">
+              <PropertyRef Name="Attorney_ID" />
+            </Principal>
+            <Dependent Role="TrademarksIndex">
+              <PropertyRef Name="Attorney_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="nemo_freshModelStoreContainer" CdmEntityContainer="nemo_freshEntities" >
+          <EntitySetMapping Name="About_partner">
+            <EntityTypeMapping TypeName="nemo_freshModel.About_partner">
+              <MappingFragment StoreEntitySet="About partner">
+                <ScalarProperty Name="SendNotiftoViber" ColumnName="SendNotiftoViber" />
+                <ScalarProperty Name="SendNotiftoTelegram" ColumnName="SendNotiftoTelegram" />
+                <ScalarProperty Name="NotWrite" ColumnName="NotWrite" />
+                <ScalarProperty Name="PartnerCreationDate" ColumnName="PartnerCreationDate" />
+                <ScalarProperty Name="PartnerCreator" ColumnName="PartnerCreator" />
+                <ScalarProperty Name="PartnerThroughTheIntermediary" ColumnName="PartnerThroughTheIntermediary" />
+                <ScalarProperty Name="PartnerIsBefore" ColumnName="PartnerIsBefore" />
+                <ScalarProperty Name="PartnerIsPersonal" ColumnName="PartnerIsPersonal" />
+                <ScalarProperty Name="PartnerDescription" ColumnName="PartnerDescription" />
+                <ScalarProperty Name="PartnerIdE" ColumnName="PartnerIdE" />
+                <ScalarProperty Name="PartnerIdPCCP" ColumnName="PartnerIdPCCP" />
+                <ScalarProperty Name="PartnerIDAPAF" ColumnName="PartnerIDAPAF" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="BillingCountry" ColumnName="BillingCountry" />
+                <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+                <ScalarProperty Name="BillingName" ColumnName="BillingName" />
+                <ScalarProperty Name="Special_instructions_for_DN_ContactPerson" ColumnName="Special_instructions_for_DN_ContactPerson" />
+                <ScalarProperty Name="Special_instructions_ContactPerson" ColumnName="Special_instructions_ContactPerson" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FirmID_save" ColumnName="FirmID_save" />
+                <ScalarProperty Name="CreatorDate" ColumnName="CreatorDate" />
+                <ScalarProperty Name="Russian" ColumnName="Russian" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="Attorney_s_names" ColumnName="Attorney's names" />
+                <ScalarProperty Name="Attorney_s_surname" ColumnName="Attorney's surname" />
+                <ScalarProperty Name="Firm_ID" ColumnName="Firm ID" />
+                <ScalarProperty Name="Attorney_ID" ColumnName="Attorney ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventions">
+            <EntityTypeMapping TypeName="nemo_freshModel.Inventions">
+              <MappingFragment StoreEntitySet="Inventions">
+                <ScalarProperty Name="FinanceInstrForCase" ColumnName="FinanceInstrForCase" />
+                <ScalarProperty Name="RATypeId" ColumnName="RATypeId" />
+                <ScalarProperty Name="GuarantePayment" ColumnName="GuarantePayment" />
+                <ScalarProperty Name="LimitedPatent" ColumnName="LimitedPatent" />
+                <ScalarProperty Name="chQualControl" ColumnName="chQualControl" />
+                <ScalarProperty Name="PrReadWords" ColumnName="PrReadWords" />
+                <ScalarProperty Name="PrReadChk" ColumnName="PrReadChk" />
+                <ScalarProperty Name="CNCN" ColumnName="CNCN" />
+                <ScalarProperty Name="AttorneyWorkspace" ColumnName="AttorneyWorkspace" />
+                <ScalarProperty Name="Validation" ColumnName="Validation" />
+                <ScalarProperty Name="NationalLanguageId" ColumnName="NationalLanguageId" />
+                <ScalarProperty Name="FilingLanguageId" ColumnName="FilingLanguageId" />
+                <ScalarProperty Name="IPCoster_Prj" ColumnName="IPCoster_Prj" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="DivisionalDate" ColumnName="DivisionalDate" />
+                <ScalarProperty Name="ParentApplication" ColumnName="ParentApplication" />
+                <ScalarProperty Name="NewRefNum" ColumnName="NewRefNum" />
+                <ScalarProperty Name="NotToShow" ColumnName="NotToShow" />
+                <ScalarProperty Name="QueryBound" ColumnName="QueryBound" />
+                <ScalarProperty Name="IsInternationalFiling" ColumnName="IsInternationalFiling" />
+                <ScalarProperty Name="PhysicalAttorneyID" ColumnName="PhysicalAttorneyID" />
+                <ScalarProperty Name="IsPhysical" ColumnName="IsPhysical" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+                <ScalarProperty Name="SpecificationID" ColumnName="SpecificationID" />
+                <ScalarProperty Name="Examination_date" ColumnName="Examination date" />
+                <ScalarProperty Name="Date4m" ColumnName="Date4m" />
+                <ScalarProperty Name="Next_Y" ColumnName="Next_Y" />
+                <ScalarProperty Name="Ann_Y" ColumnName="Ann_Y" />
+                <ScalarProperty Name="Filing_number" ColumnName="Filing number" />
+                <ScalarProperty Name="PublPages" ColumnName="PublPages" />
+                <ScalarProperty Name="Text_base_UA_RU" ColumnName="Text_base_UA_RU" />
+                <ScalarProperty Name="RichCountryResidents" ColumnName="RichCountryResidents" />
+                <ScalarProperty Name="Applicants_type" ColumnName="Applicants_type" />
+                <ScalarProperty Name="ExaminerID" ColumnName="ExaminerID" />
+                <ScalarProperty Name="OurCaseID_save" ColumnName="OurCaseID_save" />
+                <ScalarProperty Name="Appl_type" ColumnName="Appl_type" />
+                <ScalarProperty Name="Search_Report" ColumnName="Search_Report" />
+                <ScalarProperty Name="Full_discount" ColumnName="Full_discount" />
+                <ScalarProperty Name="Text_discount" ColumnName="Text_discount" />
+                <ScalarProperty Name="Text_notEngl" ColumnName="Text_notEngl" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Claims_Total" ColumnName="Claims_Total" />
+                <ScalarProperty Name="Claims_list" ColumnName="Claims_list" />
+                <ScalarProperty Name="Last_User_Date" ColumnName="Last_User_Date" />
+                <ScalarProperty Name="Last_User" ColumnName="Last_User" />
+                <ScalarProperty Name="User_Cr_Date" ColumnName="User_Cr_Date" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="StageID_old" ColumnName="StageID-old" />
+                <ScalarProperty Name="StageID" ColumnName="StageID" />
+                <ScalarProperty Name="WO_number" ColumnName="WO number" />
+                <ScalarProperty Name="WO_date" ColumnName="WO date" />
+                <ScalarProperty Name="ForeignPatents" ColumnName="ForeignPatents" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="Archives_" ColumnName="Archives:" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Patent_date" ColumnName="Patent date" />
+                <ScalarProperty Name="Contact_to" ColumnName="Contact to" />
+                <ScalarProperty Name="IPC_number" ColumnName="IPC number" />
+                <ScalarProperty Name="PCT_date" ColumnName="PCT date" />
+                <ScalarProperty Name="PCT_number" ColumnName="PCT number" />
+                <ScalarProperty Name="isDivisional" ColumnName="isDivisional" />
+                <ScalarProperty Name="Author_ID_10" ColumnName="Author ID 10" />
+                <ScalarProperty Name="Author_ID_9" ColumnName="Author ID 9" />
+                <ScalarProperty Name="Author_ID_8" ColumnName="Author ID 8" />
+                <ScalarProperty Name="Author_ID_7" ColumnName="Author ID 7" />
+                <ScalarProperty Name="Author_ID_6" ColumnName="Author ID 6" />
+                <ScalarProperty Name="Author_ID_5" ColumnName="Author ID 5" />
+                <ScalarProperty Name="Author_ID_4" ColumnName="Author ID 4" />
+                <ScalarProperty Name="Author_ID_3" ColumnName="Author ID 3" />
+                <ScalarProperty Name="Author_ID_2" ColumnName="Author ID 2" />
+                <ScalarProperty Name="Author_ID_1" ColumnName="Author ID 1" />
+                <ScalarProperty Name="Other_prioryties" ColumnName="Other prioryties" />
+                <ScalarProperty Name="Claims" ColumnName="Claims" />
+                <ScalarProperty Name="C3_priority_num" ColumnName="3 priority num" />
+                <ScalarProperty Name="C3_priority_date" ColumnName="3 priority date" />
+                <ScalarProperty Name="C2_priority_num" ColumnName="2 priority num" />
+                <ScalarProperty Name="C2_priority_date" ColumnName="2 priority date" />
+                <ScalarProperty Name="C1_priority_num" ColumnName="1 priority num" />
+                <ScalarProperty Name="C1_priority_date" ColumnName="1 priority date" />
+                <ScalarProperty Name="Filed_in_DP" ColumnName="Filed_in_DP" />
+                <ScalarProperty Name="Filing_date" ColumnName="Filing date" />
+                <ScalarProperty Name="Their_ref" ColumnName="Their ref" />
+                <ScalarProperty Name="Agent_ref" ColumnName="Agent ref" />
+                <ScalarProperty Name="Office_ref" ColumnName="Office ref" />
+                <ScalarProperty Name="Inventions_title_Russian_" ColumnName="Inventions title(Russian)" />
+                <ScalarProperty Name="TitleFilingLanguage" ColumnName="TitleFilingLanguage" />
+                <ScalarProperty Name="Inventions_title_National_" ColumnName="Inventions title(National)" />
+                <ScalarProperty Name="Applicant_ID_6" ColumnName="Applicant ID 6" />
+                <ScalarProperty Name="Applicant_ID_5" ColumnName="Applicant ID 5" />
+                <ScalarProperty Name="Applicant_ID_4" ColumnName="Applicant ID 4" />
+                <ScalarProperty Name="Applicant_ID_3" ColumnName="Applicant ID 3" />
+                <ScalarProperty Name="Applicant_ID_2" ColumnName="Applicant ID 2" />
+                <ScalarProperty Name="Applicant_ID" ColumnName="Applicant ID" />
+                <ScalarProperty Name="Agent_ID" ColumnName="Agent ID" />
+                <ScalarProperty Name="Attorney_ID" ColumnName="Attorney ID" />
+                <ScalarProperty Name="Patent_number" ColumnName="Patent number" />
+                <ScalarProperty Name="Serial_number" ColumnName="Serial number" />
+                <ScalarProperty Name="Our_case" ColumnName="Our case" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAIL">
+            <EntityTypeMapping TypeName="nemo_freshModel.MAIL">
+              <MappingFragment StoreEntitySet="MAIL">
+                <ScalarProperty Name="FirmPlat" ColumnName="FirmPlat" />
+                <ScalarProperty Name="DeliveredToRUbyCurier" ColumnName="DeliveredToRUbyCurier" />
+                <ScalarProperty Name="ToCountry" ColumnName="ToCountry" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="ParentRegNo" ColumnName="ParentRegNo" />
+                <ScalarProperty Name="IgnoreDescription" ColumnName="IgnoreDescription" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="SentFromKh" ColumnName="SentFromKh" />
+                <ScalarProperty Name="NotToShow" ColumnName="NotToShow" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TimeDF" ColumnName="TimeDF" />
+                <ScalarProperty Name="TempDateFiling" ColumnName="TempDateFiling" />
+                <ScalarProperty Name="DateFiling" ColumnName="DateFiling" />
+                <ScalarProperty Name="File_Storage" ColumnName="File_Storage" />
+                <ScalarProperty Name="ShowReply" ColumnName="ShowReply" />
+                <ScalarProperty Name="ToShow" ColumnName="ToShow" />
+                <ScalarProperty Name="CourierDate" ColumnName="CourierDate" />
+                <ScalarProperty Name="CourierType" ColumnName="CourierType" />
+                <ScalarProperty Name="File_Reply2" ColumnName="File_Reply2" />
+                <ScalarProperty Name="Urgent" ColumnName="Urgent" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="Urgency" ColumnName="Urgency" />
+                <ScalarProperty Name="File_Reply" ColumnName="File_Reply" />
+                <ScalarProperty Name="ConfirmReturn" ColumnName="ConfirmReturn" />
+                <ScalarProperty Name="ConfirmFiling" ColumnName="ConfirmFiling" />
+                <ScalarProperty Name="ConfirmReceive" ColumnName="ConfirmReceive" />
+                <ScalarProperty Name="ControlFlag" ColumnName="ControlFlag" />
+                <ScalarProperty Name="Принят" ColumnName="Принят" />
+                <ScalarProperty Name="Входящий" ColumnName="Входящий" />
+                <ScalarProperty Name="AgentRef" ColumnName="AgentRef" />
+                <ScalarProperty Name="IN_OUT" ColumnName="IN/OUT" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Исполнитель" ColumnName="Исполнитель" />
+                <ScalarProperty Name="File" ColumnName="File" />
+                <ScalarProperty Name="Приложение" ColumnName="Приложение" />
+                <ScalarProperty Name="Содержание" ColumnName="Содержание" />
+                <ScalarProperty Name="Вид_корреспонденции" ColumnName="Вид корреспонденции" />
+                <ScalarProperty Name="Наш_номер" ColumnName="Наш номер" />
+                <ScalarProperty Name="Получатель_Отправитель" ColumnName="Получатель/Отправитель" />
+                <ScalarProperty Name="Дата" ColumnName="Дата" />
+                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartnerZoneCriteria">
+            <EntityTypeMapping TypeName="nemo_freshModel.PartnerZoneCriteria">
+              <MappingFragment StoreEntitySet="PartnerZoneCriteria">
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IsNumeric" ColumnName="IsNumeric" />
+                <ScalarProperty Name="WhatCriteria" ColumnName="WhatCriteria" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="id_record" ColumnName="id_record" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shedule">
+            <EntityTypeMapping TypeName="nemo_freshModel.Shedule">
+              <MappingFragment StoreEntitySet="Shedule">
+                <ScalarProperty Name="StatusHiddenText" ColumnName="StatusHiddenText" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="ToShow" ColumnName="ToShow" />
+                <ScalarProperty Name="History" ColumnName="History" />
+                <ScalarProperty Name="MailID" ColumnName="MailID" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="ChangeReason" ColumnName="ChangeReason" />
+                <ScalarProperty Name="Due_date" ColumnName="Due_date" />
+                <ScalarProperty Name="Show_all" ColumnName="Show_all" />
+                <ScalarProperty Name="Execution_date" ColumnName="Execution_date" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Executed" ColumnName="Executed" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reminder" ColumnName="Reminder" />
+                <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="Our_case" ColumnName="Our case" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduleClientChangesLog">
+            <EntityTypeMapping TypeName="nemo_freshModel.ScheduleClientChangesLog">
+              <MappingFragment StoreEntitySet="ScheduleClientChangesLog">
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="Sent" ColumnName="Sent" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="ChangedTo" ColumnName="ChangedTo" />
+                <ScalarProperty Name="ChangedFrom" ColumnName="ChangedFrom" />
+                <ScalarProperty Name="WhatChanged" ColumnName="WhatChanged" />
+                <ScalarProperty Name="OurCase" ColumnName="OurCase" />
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+                <ScalarProperty Name="ExactTime" ColumnName="ExactTime" />
+                <ScalarProperty Name="id_change" ColumnName="id_change" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailChangedLog">
+            <EntityTypeMapping TypeName="nemo_freshModel.MailChangedLog">
+              <MappingFragment StoreEntitySet="MailChangedLog">
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="Sent" ColumnName="Sent" />
+                <ScalarProperty Name="ChangeBy" ColumnName="ChangeBy" />
+                <ScalarProperty Name="ChangedTo" ColumnName="ChangedTo" />
+                <ScalarProperty Name="ChangedFrom" ColumnName="ChangedFrom" />
+                <ScalarProperty Name="WhatChanged" ColumnName="WhatChanged" />
+                <ScalarProperty Name="OurCase" ColumnName="OurCase" />
+                <ScalarProperty Name="mail_id" ColumnName="mail_id" />
+                <ScalarProperty Name="ExactTime" ColumnName="ExactTime" />
+                <ScalarProperty Name="id_change" ColumnName="id_change" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentFolders">
+            <EntityTypeMapping TypeName="nemo_freshModel.DocumentFolders">
+              <MappingFragment StoreEntitySet="DocumentFolders">
+                <ScalarProperty Name="DocumentFolder" ColumnName="DocumentFolder" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentSigns">
+            <EntityTypeMapping TypeName="nemo_freshModel.DocumentSigns">
+              <MappingFragment StoreEntitySet="DocumentSigns">
+                <ScalarProperty Name="idDS" ColumnName="idDS" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="ToSubDivisions" ColumnName="ToSubDivisions" />
+                <ScalarProperty Name="ShowSign" ColumnName="ShowSign" />
+                <ScalarProperty Name="FullDescriptionTMRussian" ColumnName="FullDescriptionTMRussian" />
+                <ScalarProperty Name="FullDescriptionTM" ColumnName="FullDescriptionTM" />
+                <ScalarProperty Name="FullDescriptionRussian" ColumnName="FullDescriptionRussian" />
+                <ScalarProperty Name="ToShow" ColumnName="ToShow" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="nemo_freshModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="PassedText" ColumnName="PassedText" />
+                <ScalarProperty Name="IsAdditionalVerification" ColumnName="IsAdditionalVerification" />
+                <ScalarProperty Name="SignatureLink" ColumnName="SignatureLink" />
+                <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="WorkingOut" ColumnName="WorkingOut" />
+                <ScalarProperty Name="CV_link" ColumnName="CV_link" />
+                <ScalarProperty Name="Photo_link" ColumnName="Photo_link" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="FactAddress" ColumnName="FactAddress" />
+                <ScalarProperty Name="RegistrationAddress" ColumnName="RegistrationAddress" />
+                <ScalarProperty Name="WorkContactNumbers" ColumnName="WorkContactNumbers" />
+                <ScalarProperty Name="IsIntern" ColumnName="IsIntern" />
+                <ScalarProperty Name="tstamp" ColumnName="tstamp" />
+                <ScalarProperty Name="AllowRemoteAccessExclusively" ColumnName="AllowRemoteAccessExclusively" />
+                <ScalarProperty Name="AllowRemoteAccess" ColumnName="AllowRemoteAccess" />
+                <ScalarProperty Name="RestrictedWithoutEmailAuth" ColumnName="RestrictedWithoutEmailAuth" />
+                <ScalarProperty Name="NeedCaptchaInput" ColumnName="NeedCaptchaInput" />
+                <ScalarProperty Name="TestNextAttemptDate" ColumnName="TestNextAttemptDate" />
+                <ScalarProperty Name="WorkingSince" ColumnName="WorkingSince" />
+                <ScalarProperty Name="FIRMID" ColumnName="FIRMID" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+                <ScalarProperty Name="EmployeeInfo" ColumnName="EmployeeInfo" />
+                <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
+                <ScalarProperty Name="InfoPageName" ColumnName="InfoPageName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="AllowCashOperations" ColumnName="AllowCashOperations" />
+                <ScalarProperty Name="ServerPassword" ColumnName="ServerPassword" />
+                <ScalarProperty Name="ServerAccount" ColumnName="ServerAccount" />
+                <ScalarProperty Name="ContactPhones" ColumnName="ContactPhones" />
+                <ScalarProperty Name="PersonalEmails" ColumnName="PersonalEmails" />
+                <ScalarProperty Name="WorkSkype" ColumnName="WorkSkype" />
+                <ScalarProperty Name="PersonalSkype" ColumnName="PersonalSkype" />
+                <ScalarProperty Name="ShowOnlyTM" ColumnName="ShowOnlyTM" />
+                <ScalarProperty Name="ShowClosedCases" ColumnName="ShowClosedCases" />
+                <ScalarProperty Name="ShowTM" ColumnName="ShowTM" />
+                <ScalarProperty Name="IsOfficially" ColumnName="IsOfficially" />
+                <ScalarProperty Name="Vacation_totalHours" ColumnName="Vacation_totalHours" />
+                <ScalarProperty Name="Vacation_hours" ColumnName="Vacation_hours" />
+                <ScalarProperty Name="Vacation_days" ColumnName="Vacation_days" />
+                <ScalarProperty Name="Hours_Employee" ColumnName="Hours_Employee" />
+                <ScalarProperty Name="Hours_comment" ColumnName="Hours_comment" />
+                <ScalarProperty Name="NotWorking" ColumnName="NotWorking" />
+                <ScalarProperty Name="CasesCriteria" ColumnName="CasesCriteria" />
+                <ScalarProperty Name="ExternalCaseComments" ColumnName="ExternalCaseComments" />
+                <ScalarProperty Name="PAFirmID" ColumnName="PAFirmID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="UniqueUserID" ColumnName="UniqueUserID" />
+                <ScalarProperty Name="ComputerName" ColumnName="ComputerName" />
+                <ScalarProperty Name="Boss_Id3" ColumnName="Boss_Id3" />
+                <ScalarProperty Name="Boss_Id2" ColumnName="Boss_Id2" />
+                <ScalarProperty Name="Boss_Id" ColumnName="Boss_Id" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="UserType_id" ColumnName="UserType_id" />
+                <ScalarProperty Name="UserGroup_id" ColumnName="UserGroup_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="UserOldSurname" ColumnName="UserOldSurname" />
+                <ScalarProperty Name="UserPatronymic" ColumnName="UserPatronymic" />
+                <ScalarProperty Name="UserRealName" ColumnName="UserRealName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersCheckChanges">
+            <EntityTypeMapping TypeName="nemo_freshModel.UsersCheckChanges">
+              <MappingFragment StoreEntitySet="UsersCheckChanges">
+                <ScalarProperty Name="IsTM" ColumnName="IsTM" />
+                <ScalarProperty Name="IsInv" ColumnName="IsInv" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrademarksIndex">
+            <EntityTypeMapping TypeName="nemo_freshModel.TrademarksIndex">
+              <MappingFragment StoreEntitySet="TrademarksIndex">
+                <ScalarProperty Name="FinanceInstrForCase" ColumnName="FinanceInstrForCase" />
+                <ScalarProperty Name="TargetLanguageGoodsAndServices" ColumnName="TargetLanguageGoodsAndServices" />
+                <ScalarProperty Name="BasicLanguageGoodsAndServices" ColumnName="BasicLanguageGoodsAndServices" />
+                <ScalarProperty Name="OrderNumberFromSite" ColumnName="OrderNumberFromSite" />
+                <ScalarProperty Name="EngColorName" ColumnName="EngColorName" />
+                <ScalarProperty Name="RusColorName" ColumnName="RusColorName" />
+                <ScalarProperty Name="ClassRemarks" ColumnName="ClassRemarks" />
+                <ScalarProperty Name="CNCN" ColumnName="CNCN" />
+                <ScalarProperty Name="IPCosterOurRoleInPrj" ColumnName="IPCosterOurRoleInPrj" />
+                <ScalarProperty Name="IPCoster_Prj" ColumnName="IPCoster_Prj" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="Efiling" ColumnName="Efiling" />
+                <ScalarProperty Name="AcceleratedExamination" ColumnName="AcceleratedExamination" />
+                <ScalarProperty Name="NewRefNum" ColumnName="NewRefNum" />
+                <ScalarProperty Name="NotToShow" ColumnName="NotToShow" />
+                <ScalarProperty Name="QueryBound" ColumnName="QueryBound" />
+                <ScalarProperty Name="PhysicalAttorneyID" ColumnName="PhysicalAttorneyID" />
+                <ScalarProperty Name="IsPhysical" ColumnName="IsPhysical" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+                <ScalarProperty Name="TrademarkDescription" ColumnName="TrademarkDescription" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="Print" ColumnName="Print" />
+                <ScalarProperty Name="Renewal_date" ColumnName="Renewal date" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Our_ref" ColumnName="Our_ref" />
+                <ScalarProperty Name="Last_User_Date" ColumnName="Last_User_Date" />
+                <ScalarProperty Name="Last_User" ColumnName="Last_User" />
+                <ScalarProperty Name="User_Cr_Date" ColumnName="User_Cr_Date" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="ExaminerID" ColumnName="ExaminerID" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="Archives_" ColumnName="Archives:" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="TM_font" ColumnName="TM font" />
+                <ScalarProperty Name="Patent_date" ColumnName="Patent date" />
+                <ScalarProperty Name="Contact_to" ColumnName="Contact to" />
+                <ScalarProperty Name="Certificate_number" ColumnName="Certificate number" />
+                <ScalarProperty Name="Serial_number" ColumnName="Serial number" />
+                <ScalarProperty Name="International_date" ColumnName="International date" />
+                <ScalarProperty Name="International_number" ColumnName="International number" />
+                <ScalarProperty Name="C1_priority_num" ColumnName="1 priority num" />
+                <ScalarProperty Name="C1_priority_date" ColumnName="1 priority date" />
+                <ScalarProperty Name="Filing_date" ColumnName="Filing date" />
+                <ScalarProperty Name="USSR_number" ColumnName="USSR number" />
+                <ScalarProperty Name="Agent_ref" ColumnName="Agent ref" />
+                <ScalarProperty Name="Office_ref" ColumnName="Office ref" />
+                <ScalarProperty Name="Their_ref" ColumnName="Their ref" />
+                <ScalarProperty Name="Number_of_classes" ColumnName="Number of classes" />
+                <ScalarProperty Name="Classes" ColumnName="Classes" />
+                <ScalarProperty Name="Goods_list" ColumnName="Goods list" />
+                <ScalarProperty Name="IsColor" ColumnName="IsColor" />
+                <ScalarProperty Name="Trademark_colors" ColumnName="Trademark colors" />
+                <ScalarProperty Name="Wordmark" ColumnName="Wordmark" />
+                <ScalarProperty Name="Applicant_ID" ColumnName="Applicant ID" />
+                <ScalarProperty Name="Agent_ID" ColumnName="Agent ID" />
+                <ScalarProperty Name="Attorney_ID" ColumnName="Attorney ID" />
+                <ScalarProperty Name="Our_case" ColumnName="Our case" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
