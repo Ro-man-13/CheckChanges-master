@@ -30,7 +30,7 @@ namespace PdfFileUpdater
             foreach(var fileName in files)
             {
                 bool flagNew = false;
-                string oldFilePath = fileName.Replace(".pdf","_old.pdf");
+                string oldFilePath = fileName.Replace(".pdf","__old.pdf");
                 PdfDocument outputPDFDocument = new PdfDocument();
                 PdfDocument PDFDocument = PdfReader.Open(fileName, PdfDocumentOpenMode.Import);
                 outputPDFDocument.Version = PDFDocument.Version;
